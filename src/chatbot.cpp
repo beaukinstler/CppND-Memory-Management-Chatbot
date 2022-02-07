@@ -44,6 +44,54 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
+// copy contructor
+ChatBot::ChatBot(const ChatBot &source)
+{
+    std::cout << "ChatBot Copy Contructor" << std::endl;
+
+    *_image = *source._image;
+}
+
+// copy assignment operator
+ChatBot &ChatBot::operator=(const ChatBot &source)
+{
+    std::cout << "ChatBot Copy Assigned" << std::endl;
+
+    *_image = *source._image;
+
+    return *this;
+}
+
+// move contructor
+ChatBot::ChatBot(ChatBot &&source)
+{
+    std::cout << "ChatBot Move Contructor" << std::endl;
+
+    if (_image)
+    {
+        delete[] _image;
+    }
+    _image = source._image;
+    source._image = nullptr;
+}
+
+// move assignment operator
+ChatBot &ChatBot::operator=(ChatBot &&source)
+{
+    std::cout << "ChatBot Move Assignment" << std::endl;
+
+    if (this != &source)
+    {
+        if (_image)
+        {
+            delete[] _image;
+        }
+        _image = source._image;
+        source._image = nullptr;
+    }
+
+    return *this;
+}
 
 ////
 //// EOF STUDENT CODE
