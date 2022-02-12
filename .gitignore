@@ -1,10 +1,5 @@
 .github/**
-<<<<<<< HEAD
+
 .vscode/*
 build/*
 /debug/
-=======
-.vscode/
-build
-debug
->>>>>>> 2997b1a (initial)
