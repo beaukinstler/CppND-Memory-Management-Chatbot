@@ -65,7 +65,7 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
 // move contructor
 ChatBot::ChatBot(ChatBot &&source)
 {
-    std::cout << "ChatBot Move Contructor" << std::endl;
+    std::cout << "ChatBot Move Constructor" << std::endl;
 
     if (_image)
     {
@@ -78,7 +78,7 @@ ChatBot::ChatBot(ChatBot &&source)
 // move assignment operator
 ChatBot &ChatBot::operator=(ChatBot &&source)
 {
-    std::cout << "ChatBot Move Assignment" << std::endl;
+    std::cout << "ChatBot Move Assignment Operator" << std::endl;
 
     if (this != &source)
     {
