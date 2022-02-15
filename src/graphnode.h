@@ -51,7 +51,7 @@ public:
     //// STUDENT CODE
     ////
 
-    void MoveChatbotHere(std::unique_ptr<ChatBot> chatbot);
+    void MoveChatbotHere(std::unique_ptr<ChatBot> &&chatbot);
 
     ////
     //// EOF STUDENT CODE

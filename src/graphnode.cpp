@@ -13,7 +13,7 @@ GraphNode::~GraphNode()
     ////
 
     // delete _chatBot;  // TASK 0 DONE:  Caused segfault
-    std::cout << "GraphNode Destructor";
+    // std::cout << "GraphNode Destructor";
 
     ////
     //// EOF STUDENT CODE
@@ -36,11 +36,11 @@ void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge)
 
 //// STUDENT CODE
 ////
-void GraphNode::MoveChatbotHere(std::unique_ptr<ChatBot> chatbot)
+void GraphNode::MoveChatbotHere(std::unique_ptr<ChatBot> &&chatbot)
 {
     chatbot->SetCurrentNode(this);
-    // _chatBot = std::move(chatbot);
-    _chatBot = chatbot;
+    _chatBot = std::move(chatbot);
+
 }
 
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
