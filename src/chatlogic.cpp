@@ -217,15 +217,15 @@ void ChatLogic::SetPanelDialogHandle(ChatBotPanelDialog *panelDialog)
     _panelDialog = panelDialog;
 }
 
-void ChatLogic::SetChatbotHandle(ChatBot *chatbot)
-{
-    _chatBot = chatbot;
-}
+// void ChatLogic::SetChatbotHandle(ChatBot *chatbot)
+// {
+//     _chatBot = chatbot;
+// }
 
-void ChatLogic::SendMessageToChatbot(std::string message)
-{
-    _chatBot->ReceiveMessageFromUser(message);
-}
+// void ChatLogic::SendMessageToChatbot(std::string message)
+// {
+//     _chatBot->ReceiveMessageFromUser(message);
+// }
 
 void ChatLogic::SendMessageToUser(std::string message)
 {
