@@ -31,10 +31,10 @@ public:
     ////
 
     // copy contructor
-    ChatBot(const ChatBot &source);
+    ChatBot(const ChatBot &source) = delete;
 
     // copy assignment operator
-    ChatBot &operator=(const ChatBot &source);
+    ChatBot &operator=(const ChatBot &source) = delete;
 
     // move contructor
     ChatBot(ChatBot &&source);

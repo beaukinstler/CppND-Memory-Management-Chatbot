@@ -45,22 +45,22 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 // copy contructor
-ChatBot::ChatBot(const ChatBot &source)
-{
-    std::cout << "ChatBot Copy Contructor" << std::endl;
+// ChatBot::ChatBot(const ChatBot &source)
+// {
+//     std::cout << "ChatBot Copy Contructor" << std::endl;
 
-    *_image = *source._image;
-}
+//     *_image = *source._image;
+// }
 
 // copy assignment operator
-ChatBot &ChatBot::operator=(const ChatBot &source)
-{
-    std::cout << "ChatBot Copy Assigned" << std::endl;
+// ChatBot &ChatBot::operator=(const ChatBot &source)
+// {
+//     std::cout << "ChatBot Copy Assigned" << std::endl;
 
-    *_image = *source._image;
+//     *_image = *source._image;
 
-    return *this;
-}
+//     return *this;
+// }
 
 // move contructor
 ChatBot::ChatBot(ChatBot &&source)
