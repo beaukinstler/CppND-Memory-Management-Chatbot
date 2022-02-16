@@ -65,29 +65,49 @@ ChatBot::~ChatBot()
 // move contructor
 ChatBot::ChatBot(ChatBot &&source)
 {
-    std::cout << "ChatBot Move Contructor" << std::endl;
+    std::cout << "ChatBot Move Constructor" << std::endl;
 
     if (_image)
     {
-        delete[] _image;
+        _image = NULL;
     }
     _image = source._image;
-    source._image = nullptr;
+    _rootNode = source._rootNode;
+    _chatLogic = source._chatLogic;
+    _currentNode = source._currentNode;
+
+    // null old pointers
+    source._image = NULL;
+    source._rootNode = nullptr;
+    source._chatLogic = nullptr;
+    source._currentNode = nullptr;
+
+    _chatLogic->SetChatbotHandle(this);
 }
 
 // move assignment operator
 ChatBot &ChatBot::operator=(ChatBot &&source)
 {
-    std::cout << "ChatBot Move Assignment" << std::endl;
+    std::cout << "ChatBot Move Assignment Operator" << std::endl;
 
     if (this != &source)
     {
         if (_image)
         {
-            delete[] _image;
+            _image = NULL;
         }
         _image = source._image;
-        source._image = nullptr;
+        _rootNode = source._rootNode;
+        _chatLogic = source._chatLogic;
+        _currentNode = source._currentNode;
+
+        _chatLogic->SetChatbotHandle(this);
+
+    // null old pointers
+        source._image = NULL;
+        source._rootNode = nullptr;
+        source._chatLogic = nullptr;
+        source._currentNode = nullptr;
     }
 
     return *this;
