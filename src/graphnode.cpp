@@ -12,8 +12,7 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    // delete _chatBot;  // TASK 0 DONE:  Caused segfault
-    std::cout << "GraphNode Destructor";
+
 
     ////
     //// EOF STUDENT CODE

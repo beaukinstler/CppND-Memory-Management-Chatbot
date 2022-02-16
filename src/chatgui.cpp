@@ -133,11 +133,7 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
 ChatBotPanelDialog::~ChatBotPanelDialog()
 {
     //// STUDENT CODE
-    ////
-    std::cout << "ChatBotPanelDialog Destructor" << std::endl;
-    // delete _chatLogic; // TASK 1: unique pointer doesn't need to be deleted
-
-    ////
+ 
     //// EOF STUDENT CODE
 }
 
