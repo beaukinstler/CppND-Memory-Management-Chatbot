@@ -15,26 +15,17 @@
 
 ChatLogic::ChatLogic()
 {
-    //// STUDENT CODE
-    ////
 
     // create instance of chatbot
 
     _chatBot = nullptr;
 
 
-    ////
-    //// EOF STUDENT CODE
 }
 
 ChatLogic::~ChatLogic()
 {
-    //// STUDENT CODE
-    ////
 
-
-    ////
-    //// EOF STUDENT CODE
 }
 
 template <typename T>
@@ -146,7 +137,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                             auto childNode = std::find_if(_nodes.begin(), _nodes.end(), [&childToken](std::shared_ptr<GraphNode> node) { return node->GetID() == std::stoi(childToken->second); });
 
                             // create new edge
-                            // GraphEdge *edge = new GraphEdge(id);
                             auto edge = std::make_unique<GraphEdge>(id);
                             edge->SetChildNode(childNode[0].get());
                             edge->SetParentNode(parentNode[0].get());
