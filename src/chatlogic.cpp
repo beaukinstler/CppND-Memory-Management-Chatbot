@@ -12,20 +12,16 @@
 #include "chatlogic.h"
 #include <memory>
 
-
 ChatLogic::ChatLogic()
 {
 
     // create instance of chatbot
 
     _chatBot = nullptr;
-
-
 }
 
 ChatLogic::~ChatLogic()
 {
-
 }
 
 template <typename T>
@@ -35,7 +31,8 @@ void ChatLogic::AddAllTokensToElement(std::string tokenID, tokenlist &tokens, T 
     auto token = tokens.begin();
     while (true)
     {
-        token = std::find_if(token, tokens.end(), [&tokenID](const std::pair<std::string, std::string> &pair) { return pair.first == tokenID;; });
+        token = std::find_if(token, tokens.end(), [&tokenID](const std::pair<std::string, std::string> &pair)
+                             { return pair.first == tokenID;; });
         if (token != tokens.end())
         {
             element.AddToken(token->second); // add new keyword to edge
@@ -87,11 +84,13 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
             }
 
             // process tokens for current line
-            auto type = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { return pair.first == "TYPE"; });
+            auto type = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair)
+                                     { return pair.first == "TYPE"; });
             if (type != tokens.end())
             {
                 // check for id
-                auto idToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { return pair.first == "ID"; });
+                auto idToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair)
+                                            { return pair.first == "ID"; });
                 if (idToken != tokens.end())
                 {
                     // extract id from token
@@ -104,7 +103,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                         ////
 
                         // check if node with this ID exists already
-                        auto newNode = std::find_if(_nodes.begin(), _nodes.end(), [&id](std::unique_ptr<GraphNode> &node) { return node->GetID() == id; });
+                        auto newNode = std::find_if(_nodes.begin(), _nodes.end(), [&id](std::unique_ptr<GraphNode> &node)
+                                                    { return node->GetID() == id; });
 
                         // create new element if ID does not yet exist
                         if (newNode == _nodes.end())
@@ -127,14 +127,18 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                         ////
 
                         // find tokens for incoming (parent) and outgoing (child) node
-                        auto parentToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { return pair.first == "PARENT"; });
-                        auto childToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { return pair.first == "CHILD"; });
+                        auto parentToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair)
+                                                        { return pair.first == "PARENT"; });
+                        auto childToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair)
+                                                       { return pair.first == "CHILD"; });
 
                         if (parentToken != tokens.end() && childToken != tokens.end())
                         {
                             // get iterator on incoming and outgoing node via ID search
-                            auto parentNode = std::find_if(_nodes.begin(), _nodes.end(), [&parentToken](std::unique_ptr<GraphNode> &node) { return node->GetID() == std::stoi(parentToken->second); });
-                            auto childNode = std::find_if(_nodes.begin(), _nodes.end(), [&childToken](std::unique_ptr<GraphNode> &node) { return node->GetID() == std::stoi(childToken->second); });
+                            auto parentNode = std::find_if(_nodes.begin(), _nodes.end(), [&parentToken](std::unique_ptr<GraphNode> &node)
+                                                           { return node->GetID() == std::stoi(parentToken->second); });
+                            auto childNode = std::find_if(_nodes.begin(), _nodes.end(), [&childToken](std::unique_ptr<GraphNode> &node)
+                                                          { return node->GetID() == std::stoi(childToken->second); });
 
                             // create new edge
                             auto edge = std::make_unique<GraphEdge>(id);
@@ -174,8 +178,11 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     ////
 
     ChatBot chatBot("../images/chatbot.png");
-    chatBot.SetChatLogicHandle(this);
 
+    chatBot.SetChatLogicHandle(this);
+    ChatBot chatBot2(chatBot); // test  copy constuctor
+    ChatBot cb3;
+    cb3 = chatBot; // test assignmnet constructor
 
     // identify root node
     GraphNode *rootNode = nullptr;
@@ -200,7 +207,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     chatBot.SetRootNode(rootNode);
     _chatBot = &chatBot;
     rootNode->MoveChatbotHere(std::move(chatBot));
-    
+
     ////
     //// EOF STUDENT CODE
 }

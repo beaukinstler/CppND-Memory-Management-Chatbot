@@ -45,22 +45,32 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 // copy contructor
-// ChatBot::ChatBot(const ChatBot &source)
-// {
-//     std::cout << "ChatBot Copy Contructor" << std::endl;
+ChatBot::ChatBot(const ChatBot &source)
+{
+    std::cout << "ChatBot Copy Contructor" << std::endl;
 
-//     *_image = *source._image;
-// }
+    _image = new wxBitmap();
+
+    *_image = *source._image;
+
+
+}
 
 // copy assignment operator
-// ChatBot &ChatBot::operator=(const ChatBot &source)
-// {
-//     std::cout << "ChatBot Copy Assigned" << std::endl;
+ChatBot &ChatBot::operator=(const ChatBot &source)
+{
+    std::cout << "ChatBot Copy Assigned" << std::endl;
 
-//     *_image = *source._image;
+    if(this == &source){
+        return *this;
+    }
 
-//     return *this;
-// }
+    _image = new wxBitmap();
+
+    *_image = *source._image;
+
+    return *this;
+}
 
 // move contructor
 ChatBot::ChatBot(ChatBot &&source)
