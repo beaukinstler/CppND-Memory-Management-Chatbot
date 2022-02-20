@@ -180,9 +180,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     ChatBot chatBot("../images/chatbot.png");
 
     chatBot.SetChatLogicHandle(this);
-    ChatBot chatBot2(chatBot); // test  copy constuctor
-    ChatBot cb3;
-    cb3 = chatBot; // test assignmnet constructor
 
     // identify root node
     GraphNode *rootNode = nullptr;
