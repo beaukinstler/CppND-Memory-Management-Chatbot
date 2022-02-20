@@ -19,7 +19,7 @@ private:
 
     // data handles (owned)
     // use a vector of shared smart pointers, instead of a vector of pointers.
-    std::vector<std::shared_ptr<GraphNode>> _nodes;
+    std::vector<std::unique_ptr<GraphNode>> _nodes;
 
     // std::vector<GraphEdge *> _edges;
 
